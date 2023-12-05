@@ -1,0 +1,124 @@
+//Part1
+
+//This function will take array of number and return the sum
+
+function sum (array){
+    let a=0;
+    let leng=array.length
+
+for( let i=0; i<array.length; i++)
+     {
+        
+        a=a+array[i]
+     }
+      let c= a/leng; //this will return the average of the array
+      return {sum:a,
+        average:c
+               }
+
+}
+array=[1,2,3];
+let print= sum(array);
+
+console.log(" the sum is: " + print.sum +" , "+  "the average is: "+ print.average)
+
+//Take an array of strings and return the longest string.
+
+function mystring(string){
+     newlength=[] //will print the lenght  of each string into array
+    for (let i = 0; i < string.length; i++){
+       const length= string[i].length;
+       newlength.push(length)
+     }
+     
+     const maxnumber = Math.max(...newlength);//find the largest number
+     const maxindex = newlength.indexOf(maxnumber);// find index of the largest number
+     
+              return{
+                a:newlength,
+                b:maxindex
+              }     ;     
+               
+}
+
+string= ["Alan","Tanious","Yazbeckaaa"];
+
+const maxstring= mystring(string);//print the string with maximum length 
+const strlocation = 1 + maxstring.b;
+;
+console.log(" The largest String in the array is: " , string[maxstring.b], " it is the string number", strlocation )
+
+//Take an array of strings, and a number and return an array of the strings that are longer than the given number. 
+//For example, stringsLongerThan(['say', 'hello', 'in', 'the', 'morning'], 3); would return ["hello", "morning"].
+
+
+
+function stringLonger(strings, number) {
+    let newStrings = []; // Create an empty array
+
+    for (let i = 0; i < strings.length; i++) {
+        const currentString = strings[i]; // Access each string in the array
+        if (currentString.length > number) {
+            newStrings.push(currentString); // Push it to the newStrings array
+        }
+    }
+
+    return newStrings;
+}
+
+const names = ["Alan", "Joe", "Joseph"];
+const minNumber = 3;
+const printMe = stringLonger(names, minNumber);
+
+console.log(printMe);
+
+//Take a number, n, and print every number between 1 and n without using loops. Use recursion.
+function printme(number, n) {
+    if (number > n) {
+        return;
+    }
+
+    console.log(number);
+
+    printme(number + 1, n);
+}
+
+
+printme(1, 10);
+
+
+
+//part 2
+
+
+
+//Use array methods to create function to sort byage
+
+
+let str= [{ id: "42", name: "Bruce", occupation: "Knight", age: "41" },  
+{ id: "48", name: "Barry", occupation: "Runner", age: "25" },  
+{ id: "57", name: "Bob", occupation: "Fry Cook", age: "19" },  
+{ id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" },  
+{ id: "7", name: "Bilbo", occupation: "None", age: "111" }]
+
+
+function sortmyage(object){
+    const sortage = str.sort((a, b) => a.age - b.age);
+    return sortage;
+
+}
+
+const sortbyage= sortmyage(str);
+console.log(sortbyage);
+
+//function Filter the array to remove entries with an age greater than 50.
+
+function filtermyage (object){
+
+    filterbyage=object.filter(person=>person.age>50);
+    return filterbyage;
+}
+
+const x=filtermyage(sortbyage);
+console.log(x);
+
